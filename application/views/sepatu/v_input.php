@@ -18,8 +18,17 @@ h5 {
   color: red;
 }
 
+
 .card {
   background-color: #C0C0C0;
+}
+
+.form-control-user {
+  width: 100%;
+}
+
+.form-control {
+  height: 50px;
 }
 </style>
 
@@ -48,13 +57,13 @@ h5 {
                   <form class="user" method="post" action="#">
                     <div class="form-group">
                       <h5><strong>Nama Pembeli</strong></h5>
-                      <input type="text" name="nama" class="form-control form-control-user" id="nama"
+                      <input type="text" name="nama" class=" form-control-user form-control" id="nama"
                         placeholder="-- Nama Lengkap...">
                       <?= form_error('nama', '<br><span style="color:red;">','</span>');?>
                     </div>
                     <div class="form-group">
                       <h5><strong>NO. Handphone</strong></h5>
-                      <input type="text" name="No" class=" form-control form-control-user" id="No"
+                      <input type="text" name="No" class="form-control-user form-control" id="No"
                         placeholder="-- No. Handphone....">
                       <?= form_error('No', '<br><span style="color:red;">','</span>');?>
                     </div>

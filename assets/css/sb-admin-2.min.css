@@ -1938,6 +1938,7 @@ pre code {
     font-size: 2rem;
     font-weight: 400;
     line-height: 1.5;
+    height: 30px;
     color: #6e707e;
     background-color: rgb(212, 45, 45);
     background-clip: padding-box;

@@ -8,9 +8,8 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-md font-weight-bold text-white text-uppercase mb-1">Jumlah Anggota</div>
-              <div class="h1 mb-0 font-weight-bold text-white"><?=
-$this->ModelUser->getUserWhere(['role_id' => 1])->num_rows();
-?></div>
+              <div class="h1 mb-0 font-weight-bold text-white">
+                <?= $this->ModelUser->getUserWhere(['role_id' => 1])->num_rows(); ?></div>
             </div>
             <div class="col-auto">
               <a href="<?= base_url('user/anggota'); ?>"><i class="fas fa-users fa-3x text-warning"></i></a>
@@ -27,10 +26,10 @@ $this->ModelUser->getUserWhere(['role_id' => 1])->num_rows();
               <div class="text-md font-weight-bold text-white text-uppercase mb-1">Stok Buku Terdaftar</div>
               <div class="h1 mb-0 font-weight-bold text-white">
                 <?php
- $where = ['stok != 0'];
- $totalstok = $this->ModelBuku->total('stok',$where);
- echo $totalstok;
- ?>
+                $where = ['stok != 0'];
+                $totalstok = $this->ModelBuku->total('stok',$where);
+                echo $totalstok;
+                ?>
               </div>
             </div>
             <div class="col-auto">
@@ -48,10 +47,10 @@ $this->ModelUser->getUserWhere(['role_id' => 1])->num_rows();
               <div class="text-md font-weight-bold text-white text-uppercase mb-1">Buku yang dipinjam</div>
               <div class="h1 mb-0 font-weight-bold text-white">
                 <?php
- $where = ['dipinjam != 0'];
- $totaldipinjam = $this->ModelBuku->total('dipinjam',$where);
- echo $totaldipinjam;
- ?>
+                $where = ['dipinjam != 0'];
+                $totaldipinjam = $this->ModelBuku->total('dipinjam',$where);
+                echo $totaldipinjam;
+                ?>
               </div>
             </div>
             <div class="col-auto">
@@ -69,10 +68,10 @@ $this->ModelUser->getUserWhere(['role_id' => 1])->num_rows();
               <div class="text-md font-weight-bold text-white text-uppercase mb-1">Buku yang dibooking</div>
               <div class="h1 mb-0 font-weight-bold text-white">
                 <?php
- $where = ['dibooking !=0'];
- $totaldibooking = $this->ModelBuku->total('dibooking', $where);
- echo $totaldibooking;
- ?>
+                $where = ['dibooking !=0'];
+                $totaldibooking = $this->ModelBuku->total('dibooking', $where);
+                echo $totaldibooking;
+                ?>
               </div>
             </div>
             <div class="col-auto">
@@ -90,10 +89,9 @@ $this->ModelUser->getUserWhere(['role_id' => 1])->num_rows();
   <div class="row">
     <div class="table-responsive table-bordered col-sm-5 ml-auto mr-auto mt-2">
       <div class="page-header">
-        <span class="fas fa-users text-primary mt-2 "> Data
-          User</span>
-        <a class="text-danger" href="<?php echo
-base_url('user/data_user'); ?>"><i class="fas fa-search mt-2 float-right"> Tampilkan</i></a>
+        <span class="fas fa-users text-primary mt-2 "> Data User</span>
+        <a class="text-danger" href="<?php echo base_url('user/data_user'); ?>"><i
+            class="fas fa-search mt-2 float-right"> Tampilkan</i></a>
       </div>
       <table class="table mt-3">
         <thead>
@@ -109,8 +107,8 @@ base_url('user/data_user'); ?>"><i class="fas fa-search mt-2 float-right"> Tampi
         </thead>
         <tbody>
           <?php
- $i = 1;
- foreach ($anggota as $a) { ?>
+          $i = 1;
+          foreach ($anggota as $a) { ?>
           <tr>
             <td><?= $i++; ?></td>
             <td><?= $a['nama']; ?></td>
@@ -125,8 +123,7 @@ base_url('user/data_user'); ?>"><i class="fas fa-search mt-2 float-right"> Tampi
     </div>
     <div class="table-responsive table-bordered col-sm-5 ml-auto mr-auto mt-2">
       <div class="page-header">
-        <span class="fas fa-book text-warning mt-2"> Data
-          Buku</span>
+        <span class="fas fa-book text-warning mt-2"> Data Buku</span>
         <a href="<?= base_url('buku'); ?>"><i class="fas fa-search text-primary mt-2 float-right"> Tampilkan</i></a>
       </div>
       <div class="table-responsive">
@@ -144,8 +141,8 @@ base_url('user/data_user'); ?>"><i class="fas fa-search mt-2 float-right"> Tampi
           </thead>
           <tbody>
             <?php
- $i = 1;
- foreach ($buku as $b) { ?>
+            $i = 1;
+            foreach ($buku as $b) { ?>
             <tr>
               <td><?= $i++; ?></td>
               <td><?= $b['judul_buku']; ?></td>

@@ -5,13 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halaman Input</title>
+  <title>Halaman Output</title>
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/sb-admin-2.min.css">
 </head>
 <style>
 img {
   width: 250%;
-  height: 710px;
+  height: 850px;
+}
+
+* {
+  font-size: 20px;
 }
 
 h5 {

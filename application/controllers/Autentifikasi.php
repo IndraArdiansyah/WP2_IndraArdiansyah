@@ -28,6 +28,47 @@ class Autentifikasi extends CI_Controller
     }
   }
 
+  private function _login()
+  {
+    $email = htmlspecialchars($this->input->post('email',true));
+    $password = $this->input->post('password', true);
+    $user = $this->ModelUser->cekData(['email' => $email])->row_array();
+
+    //jika usernya ada
+    if ($user) {
+      // jika user sudah aktif
+      if ($user['is_active'] == 1) {
+        //cek password
+        if (password_verify($password, $user['password'])) {
+          $data = [
+            'email' => $user['email'],
+            'role_id' => $user['role_id']
+          ];
+
+          $this->session->set_username($data);
+
+          if ($user['role_id'] == 1) {
+            redirect('admin');
+          } else {
+            if ($user['image'] == 'default.jpg'){
+              $this->session->set_flashdata('pesan','<div class="alert alert-info alert-message" role="alert">Silahkan Ubah Profil Anda untuk Ubah Photo Profil</div>');
+            }
+            redirect('user');
+          }
+        } else {
+          $this->session->set_flashdata('pesan',  '<div class="alert alert-danger alert-message" role="alert">Password Salah !!</div>');
+          redirect('autentifikasi');
+        }
+      } else {
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">User Belum Diaktifasi !!</div>');
+        redirect('autentifikasi');
+      }
+    } else {
+      $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email Tidak Terdaftar !!</div>');
+      redirect('autentifikasi');
+    }
+  }
+
   public function blok()
   {
     $this->load->view('autentifikasi/blok');
@@ -94,45 +135,6 @@ class Autentifikasi extends CI_Controller
       }
   }
 
-  private function _login()
-  {
-    $email = htmlspecialchars($this->input->post('email',true));
-    $password = $this->input->post('password', true);
-    $user = $this->ModelUser->cekData(['email' => $email])->row_array();
-
-    //jika usernya ada
-    if ($user) {
-      // jika user sudah aktif
-      if ($user['is_active'] == 1) {
-        //cek password
-        if (password_verify($password, $user['password'])) {
-          $data = [
-            'email' => $user['email'],
-            'role_id' => $user['role_id']
-          ];
-
-          $this->session->set_username($data);
-
-          if ($user['role_id'] == 1) {
-            redirect('admin');
-          } else {
-            if ($user['image'] == 'default.jpg'){
-              $this->session->set_flashdata('pesan','<div class="alert alert-info alert-message" role="alert">Silahkan Ubah Profil Anda untuk Ubah Photo Profil</div>');
-            }
-            redirect('user');
-          }
-        } else {
-          $this->session->set_flashdata('pesan',  '<div class="alert alert-danger alert-message" role="alert">Password Salah !!</div>');
-          redirect('autentifikasi');
-        }
-      } else {
-        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">User Belum Diaktifasi !!</div>');
-        redirect('autentifikasi');
-      }
-    } else {
-      $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email Tidak Terdaftar !!</div>');
-      redirect('autentifikasi');
-    }
-  }
+  
   
 }

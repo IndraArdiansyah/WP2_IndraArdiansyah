@@ -99,7 +99,6 @@
             <th>#</th>
             <th>Nama Anggota</th>
             <th>Email</th>
-            85
             <th>Role ID</th>
             <th>Aktif</th>
             <th>Member Sejak</th>

@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 class ModelBuku extends CI_Model
 {
 //manajemen buku
@@ -14,25 +13,24 @@ class ModelBuku extends CI_Model
 	}
 	public function simpanBuku($data = null)
 	{
-	$this->db->insert('buku',$data);
+		$this->db->insert('buku',$data);
 	}
 	public function updateBuku($data = null, $where = null)
 	{
-	$this->db->update('buku', $data, $where);
+		$this->db->update('buku', $data, $where);
 	}
 	public function hapusBuku($where = null)
 	{
-	$this->db->delete('buku', $where);
+		$this->db->delete('buku', $where);
 	}
 	public function total($field, $where)
 	{
-	$this->db->select_sum($field);
-	if(!empty($where) && count($where) > 0)
-	{
-	$this->db->where($where);
-	}
-	$this->db->from('buku');
-	return $this->db->get()->row($field);
+		$this->db->select_sum($field);
+		if(!empty($where) && count($where) > 0){
+			$this->db->where($where);
+		}
+		$this->db->from('buku');
+		return $this->db->get()->row($field);
 	}
 
 	//manajemen kategori

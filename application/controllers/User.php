@@ -17,7 +17,7 @@ class User extends CI_Controller
     $this->load->view('templates/sidebar', $data);
     $this->load->view('templates/topbar', $data);
     $this->load->view('user/index', $data);
-    $this->load->view('templates/footer', $data);
+    $this->load->view('templates/footer');
   }
   
   public function anggota()
@@ -46,7 +46,7 @@ class User extends CI_Controller
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
     $this->load->view('templates/topbar', $data);
-    $this->load->view('user/ubah-profile', $data);
+    $this->load->view('user/ubah-profil', $data);
     $this->load->view('templates/footer');
   } else {
     $nama = $this->input->post('nama', true);
@@ -78,7 +78,8 @@ class User extends CI_Controller
     $this->db->set('nama', $nama);
     $this->db->where('email', $email);
     $this->db->update('user');
-    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">ProfiBerhasil diubah </div>');
+
+    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Profil Berhasil diubah </div>');
     redirect('user');
     }
   }

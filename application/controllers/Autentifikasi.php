@@ -2,10 +2,18 @@
 
 class Autentifikasi extends CI_Controller
 {
+  public function __construct()
+    {
+        parent::__construct();
+        //cek_user();
+        $this->load->model(['ModelUser','ModelBuku']);
+        // $this->load->model(['ModelUser', 'ModelBooking', 'ModelBuku', 'ModelKategori']);
+    }
+
   public function index()
   {
     if($this->session->userdata('email')){
-      redirect('user');
+      redirect('admin');
     }
     $this->form_validation->set_rules('email', 'Alamat Email','required|trim|valid_email',[
       'required' => 'Email Harus Diisi..!!',
@@ -65,15 +73,7 @@ private function _login()
   }
 }
 
-  public function blok()
-  {
-    $this->load->view('autentifikasi/blok');
-  }
-  public function gagal()
-  {
-    $this->load->view('autentifikasi/gagal');
-  }
-
+  
   public function registrasi()
   {
     if ($this->session->userdata('email')) {
@@ -131,6 +131,24 @@ private function _login()
       }
   }
 
+  public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Anda telah logout!!</div>');
+        redirect('superuser');
+    }
+
+    public function blok()
+    {
+        $this->load->view('autentifikasi/blok');
+    }
+
+    public function gagal()
+    {
+        $this->load->view('autentifikasi/gagal');
+    }
   
   
 }

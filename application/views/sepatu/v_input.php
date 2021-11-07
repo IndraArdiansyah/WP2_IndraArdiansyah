@@ -8,7 +8,7 @@
   <title>Halaman Input</title>
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/sb-admin-2.min.css">
 </head>
-<style>
+<!-- <style>
 img {
   width: 250%;
   height: 710px;
@@ -30,7 +30,7 @@ h5 {
 .form-control {
   height: 50px;
 }
-</style>
+</style> -->
 
 
 <body class="bg-gradient-success">

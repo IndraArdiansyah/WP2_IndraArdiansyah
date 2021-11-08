@@ -16,12 +16,12 @@
   <i class="fas fa-angle-up"></i>
 </a>
 <!-- Logout Modal-->
-<div class="Modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="ExampleModalLabel"
-  aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="ExampleModalLabel"
+  ariahidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
+        <h5 class="modal-title" id="ExampleModalLabel">
           Yakin mau keluar..??
         </h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -30,14 +30,14 @@
       </div>
       <div class="modal-body">Pilih "Logout" di bawah jika kamu yakin sudah selesai.</div>
       <div class="modal-footer">
-        <button class="btn btn-primary" type="button" data-dismiss="modal">
-          cancel
-        </button>
+        <button class="btn btn-primary" type="button" data-dismiss="modal">cancel</button>
         <a href="<?=base_url('autentifikasi/logout'); ?>" class="btn btn-primary">Logout</a>
       </div>
     </div>
   </div>
 </div>
+
+
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

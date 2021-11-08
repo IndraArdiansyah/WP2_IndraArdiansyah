@@ -6,7 +6,8 @@ class Autentifikasi extends CI_Controller
     {
         parent::__construct();
         //cek_user();
-        $this->load->model(['ModelUser','ModelBuku']);
+        // $this->load->model(['ModelUser','ModelBuku']);
+        $this->load->model(['ModelUser']);
         // $this->load->model(['ModelUser', 'ModelBooking', 'ModelBuku', 'ModelKategori']);
     }
 
@@ -136,8 +137,8 @@ private function _login()
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
 
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Anda telah logout!!</div>');
-        redirect('superuser');
+        // $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Anda telah logout!!</div>');
+        redirect('autentifikasi');
     }
 
     public function blok()

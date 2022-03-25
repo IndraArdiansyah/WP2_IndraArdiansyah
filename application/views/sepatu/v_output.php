@@ -112,65 +112,6 @@ h6 {
 
 
 
-
-
-
-  <fieldset>
-    <legend><strong>Output Transaksi</strong></legend>
-
-    <table>
-      <tr>
-        <th>Nama Pembeli</th>
-        <td>:</td>
-        <td>
-          <?= $nama; ?>
-        </td>
-      </tr>
-
-      <tr>
-        <th>No. Handphone</th>
-        <td>:</td>
-        <td>
-          <?= $No; ?>
-        </td>
-      </tr>
-
-      <tr>
-        <th>Merk Sepatu</th>
-        <td>:</td>
-        <td>
-          <?= $merk; ?>
-        </td>
-      </tr>
-
-      <tr>
-        <th>ukuran</th>
-        <td>:</td>
-        <td>
-          <?= $ukuran; ?>
-        </td>
-      </tr>
-
-      <tr>
-        <th>Harga</th>
-        <td>:</td>
-        <td>
-          <?= $harga; ?>
-        </td>
-      </tr>
-
-      <tr>
-        <td colspan="3" align="center">
-          <hr>
-          <a href="<?= base_url('Sepatu'); ?>">Kembali</button>
-        </td>
-      </tr>
-
-    </table>
-  </fieldset>
-
-
-
 </body>
 
 </html>
